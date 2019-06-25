@@ -12,7 +12,7 @@ set cpoptions&vim
 " search pg_format path
 if !exists('*s:SearchPgformatter')
     function s:SearchPgformatter()
-        silent let path = system('which pg_format')
+        silent let path = substitute(system('which pg_format'), '\n', '', '')
         if v:shell_error == 0
             return path
         endif
